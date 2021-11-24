@@ -8,4 +8,9 @@ class AccountAPI extends RESTDataSource {
         this.baseURL = serverConfig.account_api_url;
     }
 
+    async accountByUsername(username){
+        return await this.get(`/accounts/${username}`);
+    }
 }
+
+module.exports = AccountAPI;
