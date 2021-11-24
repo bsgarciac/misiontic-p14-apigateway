@@ -1,7 +1,7 @@
 const accountResolver = {
     Query: {
-        accountByUsername: (_, {username}, {dataSource}) => {
-            
+        accountByUsername: async (_, {username}, {dataSource}) => {
+            return await dataSource.accountByUsername(username);
         }
     }
 }
