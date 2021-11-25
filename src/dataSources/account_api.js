@@ -13,7 +13,7 @@ class AccountAPI extends RESTDataSource {
     }
 
     async createAccountRequest(account){
-        return await this.post('/accounts'. account);
+        return await this.post('/accounts', account);
     }
 }
 
