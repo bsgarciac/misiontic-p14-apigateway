@@ -4,7 +4,6 @@ const resolvers = require('./resolvers')
 const AccountAPI = require('./dataSources/account_api')
 const AuthAPI = require('./dataSources/auth_api')
 
-
 const server = new ApolloServer({
     typeDefs, 
     resolvers,
