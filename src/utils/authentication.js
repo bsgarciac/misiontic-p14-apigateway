@@ -8,6 +8,7 @@ const authentication = async ({ req }) => {
     if(token == ''){
         return { usernameToken: null }
     }else{
+        console.log("entra")
         try {
             let requestOptions = {
                 method: 'GET',
@@ -17,12 +18,12 @@ const authentication = async ({ req }) => {
                 },
                 redirect: 'follow'
             }
-            let response = await fetch(`${serverConfig.auth_api_url}soporte/user/`, requestOptions)
+            let response = await fetch(`${serverConfig.auth_api_url}soporte/user`, requestOptions)
             if(response.status != 200){
                 console.log("Fallo", response)
                 throw new ApolloError("SESIÓN INACTIVA", 401)
             }
-            return { usernameToken: response.json().username}
+            return { usernameToken: (await response.json()).username}
         }catch (error){
             console.log("Fallo", error)
             throw new ApolloError("ERROR DESCONOCIDO", 500)
