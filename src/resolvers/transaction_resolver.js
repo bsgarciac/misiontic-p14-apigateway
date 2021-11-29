@@ -10,3 +10,5 @@ const transactionResolver = {
         }
     }
 }
+
+module.exports = transactionResolver;
